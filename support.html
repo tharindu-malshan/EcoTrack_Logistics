@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+    <h1>Customer Support</h1>
+    <p>Create and manage support tickets</p>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tracking.html">Tracking</a></li>
+            <li><a href="routes.html" class="active">Route Optimization</a></li>
+            <li><a href="support.html">Customer Support</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="routef">
+ <form onsubmit="submitTicket(event)">
+    <h1>Customer Details</h1>
+
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="text" id="contact" placeholder="Contact Number" required>
+    <input type="text" id="Parcel" placeholder="Parcel ID" required>
+
+    <h1>Issue Details</h1>
+
+    <select id="category" required>
+        <option value="">...Select Issue Category...</option>
+        <option>Delivery Delay</option>
+        <option>Lost Parcel</option>
+        <option>Damaged Parcel</option>
+        <option>Payment Issue</option>
+        <option>Other</option>
+    </select>
+
+    <select id="priority" required>
+        <option value="">...Select Priority Level...</option>
+        <option>Urgent</option>
+        <option>Medium</option>
+        <option>Low</option>
+    </select>
+
+    <textarea id="description" placeholder="Problem Description" required></textarea>
+
+    <label for="date">Date of Issue</label>
+    <input type="date" id="date" required>
+ 
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="successMsg" style="display:none; color:green; text-align:center;">
+    Ticket submitted successfully!
+    </p>
+
+</div>
+
+<footer>
+    © 2025 EcoTrack Logistics
+</footer>
+
+<script src="sup.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parcel Tracking | EcoTrack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<body>
+
+<header>
+    <h1>Parcel Tracking</h1>
+    <p>Track your parcel delivery status</p>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tracking.html">Tracking</a></li>
+            <li><a href="routes.html">Route Optimization</a></li>
+            <li><a href="support.html">Customer Support</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="card">
+        <h3>Enter Parcel ID</h3>
+        <input type="text" id="parcelId" placeholder="e.g. ECO123" class="input">
+        <button onclick="trackParcel()">Track Parcel</button>
+    </section>
+
+    <section id="result" class="card" style="display:none;">
+        <h3>Tracking Details</h3>
+        <p><strong>Status:</strong> <span id="status"></span></p>
+        <p><strong>Driver:</strong> <span id="driver"></span></p>
+        <p><strong>Estimated Time:</strong> <span id="time"></span></p>
+    </section>
+
+<section id="mapCard" class="card" style="display:none;">
+    <h3>Parcel vs Your Location</h3>
+    <p id="distanceInfo"></p>
+    <div id="map" style="height: 300px;"></div>
+</section>
+
+
+</main>
+
+<footer>
+    © 2025 EcoTrack Logistics
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

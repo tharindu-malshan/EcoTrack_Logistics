@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Route Optimization | EcoTrack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Route Optimization</h1>
+    <p>Find shortest and eco-friendly routes</p>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tracking.html">Tracking</a></li>
+            <li><a href="routes.html" class="active">Route Optimization</a></li>
+            <li><a href="support.html">Customer Support</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Route Input Form -->
+<div class="routef">
+    <form onsubmit="findRoute(event)">
+        <input type="text" id="pickup" placeholder="Enter Pickup Location" required>
+        <input type="text" id="delivery" placeholder="Enter Delivery Location" required>
+        <input type="number" id="capacity" placeholder="Vehicle Capacity (kg)" required>
+        <input type="number" id="weight" placeholder="Package Weight (kg)" required>
+
+        <button type="submit" class="find">Generate Routes</button>
+    </form>
+</div>
+
+<!-- Results Section -->
+<section id="routeResult" class="card" style="display:none;">
+    <h3>Route Suggestions</h3>
+
+    <p>
+        <strong>Shortest Distance Route:</strong><br>
+        Distance: <span id="shortDistance"></span><br>
+        Estimated Time: <span id="shortTime"></span>
+    </p>
+
+    <p>
+        <strong>Lowest CO₂ Emission Route:</strong><br>
+        Distance: <span id="ecoDistance"></span><br>
+        Estimated Time: <span id="ecoTime"></span><br>
+        Estimated CO₂: <span id="ecoCO2"></span>
+    </p>
+
+    <p id="fallbackMsg" style="color:red; display:none;">
+        ⚠ Manual routing required (API unavailable – cached data used)
+    </p>
+</section>
+
+<!-- Map -->
+<div id="map" style="height:400px; margin:20px;"></div>
+
+<footer style="text-align:center; padding:15px;">
+    © 2025 EcoTrack Logistics | RAD Prototype
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Main Script -->
+<script src="routes.js"></script>
+
+</body>
+</html>
